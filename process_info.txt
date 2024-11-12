@@ -1,0 +1,99 @@
+remoted:
+  Process:
+remoted
+
+  Activity Monitor:
+pcwadmin         99489   0.0  0.0 410199584   1312 s019  S+    8:00AM   0:00.00 grep remoted
+root               635   0.0  0.0 426986976  16688   ??  Ss   Thu01AM   0:06.24 /System/Library/PrivateFrameworks/MediaRemote.framework/Support/mediaremoted
+root               648   0.0  0.0 426982288   7328   ??  Ss   Thu01AM   0:00.40 /usr/libexec/remoted
+pcwadmin         99487   0.0  0.0 410200112   1696 s019  S+    8:00AM   0:00.00 /bin/sh -c ps aux | grep remoted
+
+  Open Files:
+COMMAND PID USER   FD      TYPE             DEVICE SIZE/OFF                NODE NAME
+remoted 648 root  cwd       DIR               1,13      640                   2 /
+remoted 648 root  txt       REG               1,13   946672 1152921500312492356 /usr/libexec/remoted
+remoted 648 root  txt       REG               1,13    66296             1950991 /Library/Preferences/Logging/.plist-cache.6POJ7lFN
+remoted 648 root  txt       REG               1,13      110 1152921500312082901 /System/Library/CoreServices/SystemVersion.bundle/English.lproj/SystemVersion.strings
+remoted 648 root  txt       REG               1,13 32904576 1152921500312499905 /usr/share/icu/icudt74l.dat
+remoted 648 root    0r      CHR                3,2      0t0                 339 /dev/null
+remoted 648 root    1u      CHR                3,2      0t0                 339 /dev/null
+remoted 648 root    2u      CHR                3,2      0t0                 339 /dev/null
+remoted 648 root    3u     unix 0x5375e32a38cd4284      0t0                     ->0x8b5744a64cefae8c
+remoted 648 root    6   NPOLICY
+
+  Launchctl:
+635	0	com.apple.mediaremoted
+648	0	com.apple.remoted
+-	0	com.apple.xartstorageremoted
+
+replicatord:
+  Process:
+replicatord
+
+  Activity Monitor:
+pcwadmin          1021   0.0  0.1 427523920  29040   ??  S    Thu01AM   0:11.98 /System/Library/PrivateFrameworks/ReplicatorCore.framework/Support/replicatord
+pcwadmin         99499   0.0  0.0 410199584   1312 s019  S+    8:00AM   0:00.00 grep replicatord
+pcwadmin         99497   0.0  0.0 410200112   1696 s019  S+    8:00AM   0:00.00 /bin/sh -c ps aux | grep replicatord
+
+  Open Files:
+COMMAND    PID     USER   FD      TYPE             DEVICE SIZE/OFF                NODE NAME
+replicato 1021 pcwadmin  cwd       DIR               1,13      640                   2 /
+replicato 1021 pcwadmin  txt       REG               1,13   172432 1152921500312306393 /System/Library/PrivateFrameworks/ReplicatorCore.framework/Support/replicatord
+replicato 1021 pcwadmin  txt       REG               1,13    66296             1950991 /Library/Preferences/Logging/.plist-cache.6POJ7lFN
+replicato 1021 pcwadmin  txt       REG               1,13 32904576 1152921500312499905 /usr/share/icu/icudt74l.dat
+replicato 1021 pcwadmin  txt       REG               1,13   851547 1152921500312129947 /System/Library/Frameworks/Foundation.framework/Versions/C/Resources/FoundationErrors.loctable
+replicato 1021 pcwadmin  txt       REG               1,13    32768              532476 /Users/pcwadmin/Library/Group Containers/group.com.apple.replicatord/replicatord/replicatord.sql-shm
+replicato 1021 pcwadmin  txt       REG               1,13   237952             1060814 /private/var/db/timezone/tz/2024a.1.0/icutz/icutz44l.dat
+replicato 1021 pcwadmin  txt       REG               1,13    12464 1152921500312223501 /System/Library/PrivateFrameworks/AppleSystemInfo.framework/Versions/A/Resources/AppleSystemInfo.loctable
+replicato 1021 pcwadmin  txt       REG               1,13   272376             2349008 /private/var/db/analyticsd/events.allowlist
+replicato 1021 pcwadmin    0r      CHR                3,2      0t0                 339 /dev/null
+replicato 1021 pcwadmin    1u      CHR                3,2      0t0                 339 /dev/null
+replicato 1021 pcwadmin    2u      CHR                3,2      0t0                 339 /dev/null
+replicato 1021 pcwadmin    3u     unix 0x7d0a3a40d17ce674      0t0                     ->0x8b5744a64cefae8c
+replicato 1021 pcwadmin    4u      REG               1,13  4878336              532473 /Users/pcwadmin/Library/Group Containers/group.com.apple.replicatord/replicatord/replicatord.sql
+replicato 1021 pcwadmin    5u      REG               1,13    32768              532475 /Users/pcwadmin/Library/Group Containers/group.com.apple.replicatord/replicatord/replicatord.sql-wal
+replicato 1021 pcwadmin    6u      REG               1,13    32768              532476 /Users/pcwadmin/Library/Group Containers/group.com.apple.replicatord/replicatord/replicatord.sql-shm
+replicato 1021 pcwadmin    7   NPOLICY                                                 
+replicato 1021 pcwadmin    8u     IPv6 0x19851f96b88ab396      0t0                 UDP *:62562
+replicato 1021 pcwadmin    9      CHAN             flowsw                              649154A1-88CD-4671-8FD3-B1C54B74AED3[2] user-packet-pool
+replicato 1021 pcwadmin   10      CHAN             flowsw                              D82596B7-6B4A-44BF-855A-2EDFE9FDD1E3[2] user-packet-pool
+replicato 1021 pcwadmin   11      CHAN             flowsw                              AD460FA9-0175-4EEB-B86F-6B9B913C4631[2] user-packet-pool
+replicato 1021 pcwadmin   12      CHAN             flowsw                              56EB7C9A-D2C9-4898-AE9B-A35A19A173EF[2] user-packet-pool
+replicato 1021 pcwadmin   14      CHAN             flowsw                              82152D97-EA58-4937-B66F-9D3DEDD1DBF7[2] user-packet-pool
+replicato 1021 pcwadmin   15      CHAN             flowsw                              6FD80C13-BD55-459D-8DAF-AC0F4AE06348[2] user-packet-pool
+replicato 1021 pcwadmin   16      CHAN             flowsw                              658F8365-3BB5-441E-9742-62F1D56DFA2B[2] user-packet-pool
+replicato 1021 pcwadmin   17      CHAN              upipe                              30D0A67B-49AD-49DC-8BB3-79A90A38D651[0]
+
+  Launchctl:
+
+
+smbd:
+  Process:
+smbd
+
+  Activity Monitor:
+pcwadmin         99509   0.0  0.0 410199584   1312 s019  S+    8:00AM   0:00.00 grep smbd
+pcwadmin         99507   0.0  0.0 410200112   1744 s019  S+    8:00AM   0:00.00 /bin/sh -c ps aux | grep smbd
+
+  SMB Status:
+
+
+wifivelocityd:
+  Process:
+wifivelocityd
+
+  Activity Monitor:
+root             72053   0.0  0.1 427001440  25904   ??  Ss    3:12AM   0:04.31 /usr/libexec/wifivelocityd
+pcwadmin         99513   0.0  0.0 410199584   1360 s019  S+    8:00AM   0:00.00 grep wifivelocityd
+pcwadmin         99511   0.0  0.0 410200112   1696 s019  S+    8:00AM   0:00.00 /bin/sh -c ps aux | grep wifivelocityd
+
+  File Details:
+-rwxr-xr-x  1 root  wheel  2383712 Jul 19 03:05 /usr/libexec/wifivelocityd
+
+  File Stat:
+16777229 1152921500312492590 -rwxr-xr-x 1 root wheel 0 2383712 "Jul 19 03:05:56 2024" "Jul 19 03:05:56 2024" "Jul 19 03:05:56 2024" "Jul 19 03:05:56 2024" 4096 1816 0x80020 /usr/libexec/wifivelocityd
+
+firewall_logs:
+  Firewall Logs:
+
+

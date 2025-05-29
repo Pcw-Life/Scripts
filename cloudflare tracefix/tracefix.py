@@ -10,9 +10,12 @@
 # CLOUDFLARE_BASE_URL              = Leave as default unless self-hosted
 # ---------------------------------------------
 
+import os
+import logging
 import subprocess
 import requests
 import json
+import jsonschema
 
 # VARIABLES
 OP_SECRET_CLOUDFLARE_API_TOKEN = "op://PCWICV/PCWI_CF_API/credential"

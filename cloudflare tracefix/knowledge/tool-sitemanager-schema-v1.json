@@ -1,0 +1,337 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "UID Identity Enterprise API",
+        "version": "2.0.0",
+        "description": "OpenAPI schema for the UniFi UID Identity Enterprise platform (Site Manager v2).",
+        "contact": {
+            "name": "PCW Integrates Support",
+            "email": "helpdesk@integrates.pcwprops.com"
+        },
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "servers": [
+        {
+            "url": "https://10.10.101.1",
+            "description": "UDM SE Site Manager API"
+        }
+    ],
+    "paths": {
+        "/nfc_cards": {
+            "get": {
+                "summary": "List NFC cards",
+                "operationId": "listNfcCards",
+                "responses": {
+                    "200": {
+                        "description": "List of NFC cards",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/NfcCard"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/access_policies": {
+            "get": {
+                "summary": "List access policies",
+                "operationId": "listAccessPolicies",
+                "responses": {
+                    "200": {
+                        "description": "List of access policies",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AccessPolicy"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/devices": {
+            "get": {
+                "summary": "List all UID devices",
+                "operationId": "listDevices",
+                "responses": {
+                    "200": {
+                        "description": "List of devices",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Device"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/device/advance_setting/doors_lockdown": {
+            "put": {
+                "summary": "Trigger lockdown mode",
+                "operationId": "triggerLockdown",
+                "responses": {
+                    "200": {
+                        "description": "Lockdown activated"
+                    }
+                }
+            }
+        },
+        "/device/advance_setting/doors_evacuation": {
+            "put": {
+                "summary": "Trigger evacuation mode",
+                "operationId": "triggerEvacuation",
+                "responses": {
+                    "200": {
+                        "description": "Evacuation activated"
+                    }
+                }
+            }
+        },
+        "/sites": {
+            "get": {
+                "summary": "List managed sites",
+                "operationId": "listSites",
+                "responses": {
+                    "200": {
+                        "description": "List of sites",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Site"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/access_policies/holiday_groups": {
+            "get": {
+                "summary": "List holiday groups",
+                "operationId": "listHolidayGroups",
+                "responses": {
+                    "200": {
+                        "description": "Holiday groups listed",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/HolidayGroup"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a holiday group",
+                "operationId": "createHolidayGroup",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/HolidayGroup"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Holiday group created"
+                    }
+                }
+            }
+        },
+        "/access_policies/holiday_groups/{group_id}": {
+            "delete": {
+                "summary": "Delete a holiday group",
+                "operationId": "deleteHolidayGroup",
+                "parameters": [
+                    {
+                        "name": "group_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "ID of the holiday group"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Group deleted"
+                    }
+                }
+            }
+        },
+        "/credentials/pin_codes/{user_type}/{user_id}": {
+            "post": {
+                "summary": "Assign a PIN code",
+                "operationId": "assignPinCode",
+                "parameters": [
+                    {
+                        "name": "user_type",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Type of user (user or visitor)"
+                    },
+                    {
+                        "name": "user_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "ID of the user receiving the PIN"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "pin_code": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "pin_code"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "PIN assigned"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "NfcCard": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "card_number": {
+                        "type": "string"
+                    },
+                    "assigned_to": {
+                        "type": "string"
+                    }
+                }
+            },
+            "AccessPolicy": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Device": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Site": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "location": {
+                        "type": "string"
+                    }
+                }
+            },
+            "HolidayGroup": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "holidays": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "ApiKeyAuth": {
+                "type": "apiKey",
+                "in": "header",
+                "name": "Authorization",
+                "description": "API token embedded in build."
+            }
+        }
+    },
+    "security": [
+        {
+            "ApiKeyAuth": []
+        }
+    ],
+    "x-metadata": {
+        "updatedBy": "ChatGPT Coding Expert",
+        "updatedFor": "PCW Integrates",
+        "gptIntegration": true,
+        "updateReason": "OpenAPI 3.0.3 finalized for UID Site Manager v2."
+    }
+}

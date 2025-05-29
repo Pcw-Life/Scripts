@@ -1,0 +1,92 @@
+[
+    {
+        "endpoint": "/v1/sites",
+        "method": "GET",
+        "labels": [
+            "cf-content",
+            "env:prod",
+            "owner:unifi"
+        ]
+    },
+    {
+        "endpoint": "/v1/sites/{siteId}/devices",
+        "method": "GET",
+        "labels": [
+            "cf-content",
+            "env:prod",
+            "owner:unifi"
+        ]
+    },
+    {
+        "endpoint": "/v1/sites/{siteId}/clients",
+        "method": "GET",
+        "labels": [
+            "cf-content",
+            "env:prod",
+            "owner:unifi"
+        ]
+    },
+    {
+        "endpoint": "/v1/sites/{siteId}/hotspot/vouchers",
+        "method": "GET",
+        "labels": [
+            "cf-content",
+            "env:prod",
+            "owner:unifi"
+        ]
+    },
+    {
+        "endpoint": "/sites",
+        "method": "GET",
+        "labels": [
+            "cf-content",
+            "env:prod",
+            "owner:unifi-site-manager"
+        ]
+    },
+    {
+        "endpoint": "/sites/{siteId}",
+        "method": "GET",
+        "labels": [
+            "cf-content",
+            "env:prod",
+            "owner:unifi-site-manager"
+        ]
+    },
+    {
+        "endpoint": "/sites/{siteId}/devices",
+        "method": "GET",
+        "labels": [
+            "cf-content",
+            "env:prod",
+            "owner:unifi-site-manager"
+        ]
+    },
+    {
+        "endpoint": "/zones",
+        "method": "GET",
+        "labels": [
+            "cf-content",
+            "env:prod",
+            "owner:cloudflare"
+        ]
+    },
+    {
+        "endpoint": "/zones/{zone_id}/settings/always_use_https",
+        "method": "PATCH",
+        "labels": [
+            "cf-create",
+            "env:prod",
+            "owner:cloudflare"
+        ]
+    },
+    {
+        "endpoint": "/zones/{zone_id}/rulesets/phases/http_request_redirect/entrypoint/rules",
+        "method": "POST",
+        "labels": [
+            "cf-create",
+            "env:prod",
+            "owner:cloudflare"
+        ]
+    }
+]

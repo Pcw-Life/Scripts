@@ -1,0 +1,88 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "UniFi Network API",
+        "version": "9.2.79",
+        "description": "OpenAPI schema for UniFi Network API."
+    },
+    "servers": [
+        {
+            "url": "https://10.10.101.1/proxy/network/integration"
+        }
+    ],
+    "paths": {
+        "/v1/sites": {
+            "get": {
+                "summary": "List sites",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/v1/sites/{siteId}/devices": {
+            "get": {
+                "summary": "List devices",
+                "parameters": [
+                    {
+                        "name": "siteId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/v1/sites/{siteId}/clients": {
+            "get": {
+                "summary": "List clients",
+                "parameters": [
+                    {
+                        "name": "siteId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/v1/sites/{siteId}/hotspot/vouchers": {
+            "get": {
+                "summary": "List vouchers",
+                "parameters": [
+                    {
+                        "name": "siteId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {}
+    }
+}

@@ -1,0 +1,68 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Cloudflare API",
+        "version": "v4",
+        "description": "OpenAPI schema for Cloudflare API."
+    },
+    "servers": [
+        {
+            "url": "https://api.cloudflare.com/client/v4"
+        }
+    ],
+    "paths": {
+        "/zones": {
+            "get": {
+                "summary": "List zones",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/zones/{zone_id}/settings/always_use_https": {
+            "patch": {
+                "summary": "Set Always Use HTTPS",
+                "parameters": [
+                    {
+                        "name": "zone_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/zones/{zone_id}/rulesets/phases/http_request_redirect/entrypoint/rules": {
+            "post": {
+                "summary": "Create redirect rule",
+                "parameters": [
+                    {
+                        "name": "zone_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {}
+    }
+}

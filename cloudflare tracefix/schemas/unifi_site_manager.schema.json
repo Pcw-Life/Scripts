@@ -1,0 +1,68 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "UniFi Site Manager API",
+        "version": "1.0.0",
+        "description": "OpenAPI schema for UniFi Site Manager API."
+    },
+    "servers": [
+        {
+            "url": "https://unifi-site-manager.example.com/api"
+        }
+    ],
+    "paths": {
+        "/sites": {
+            "get": {
+                "summary": "List all sites",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/sites/{siteId}": {
+            "get": {
+                "summary": "Get site details",
+                "parameters": [
+                    {
+                        "name": "siteId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/sites/{siteId}/devices": {
+            "get": {
+                "summary": "List devices in site",
+                "parameters": [
+                    {
+                        "name": "siteId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {}
+    }
+}

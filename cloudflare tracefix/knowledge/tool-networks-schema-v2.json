@@ -1,0 +1,142 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "UniFi Network Tool Actions",
+    "version": "1.0.0",
+    "description": "Minimal OpenAPI schema for enabling GPT tool actions to interact with a UniFi controller."
+  },
+  "servers": [
+    {
+      "url": "https://10.10.101.1",
+      "description": "Local UniFi UDM SE Controller"
+    }
+  ],
+  "paths": {
+    "/login": {
+      "post": {
+        "summary": "Authenticate with UniFi Controller",
+        "operationId": "login",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful login"
+          }
+        }
+      }
+    },
+    "/s/default/rest/wlanconf": {
+      "get": {
+        "summary": "List WiFi Networks",
+        "operationId": "listWifiNetworks",
+        "responses": {
+          "200": {
+            "description": "WiFi network list"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create new WiFi Network",
+        "operationId": "createWifiNetwork",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WifiNetworkCreateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "WiFi created"
+          }
+        }
+      }
+    },
+    "/s/default/rest/radiusprofile": {
+      "get": {
+        "summary": "List RADIUS Profiles",
+        "operationId": "listRadiusProfiles",
+        "responses": {
+          "200": {
+            "description": "Profiles fetched"
+          }
+        }
+      }
+    },
+    "/s/default/stat/sta": {
+      "get": {
+        "summary": "Get list of connected devices",
+        "operationId": "getConnectedClients",
+        "responses": {
+          "200": {
+            "description": "Connected clients returned"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "LoginRequest": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "username",
+          "password"
+        ]
+      },
+      "WifiNetworkCreateRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "x_passphrase": {
+            "type": "string"
+          },
+          "vlan": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "name",
+          "x_passphrase"
+        ]
+      }
+    },
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization",
+        "description": "API token embedded in GPT build (Bearer <token>)"
+      }
+    }
+  },
+  "security": [
+    {
+      "ApiKeyAuth": []
+    }
+  ]
+}

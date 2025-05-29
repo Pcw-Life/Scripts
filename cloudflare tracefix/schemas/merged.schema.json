@@ -1,0 +1,182 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Merged API Schema",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/v1/sites": {
+            "get": {
+                "summary": "List sites",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/v1/sites/{siteId}/devices": {
+            "get": {
+                "summary": "List devices",
+                "parameters": [
+                    {
+                        "name": "siteId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/v1/sites/{siteId}/clients": {
+            "get": {
+                "summary": "List clients",
+                "parameters": [
+                    {
+                        "name": "siteId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/v1/sites/{siteId}/hotspot/vouchers": {
+            "get": {
+                "summary": "List vouchers",
+                "parameters": [
+                    {
+                        "name": "siteId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/sites": {
+            "get": {
+                "summary": "List all sites",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/sites/{siteId}": {
+            "get": {
+                "summary": "Get site details",
+                "parameters": [
+                    {
+                        "name": "siteId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/sites/{siteId}/devices": {
+            "get": {
+                "summary": "List devices in site",
+                "parameters": [
+                    {
+                        "name": "siteId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/zones": {
+            "get": {
+                "summary": "List zones",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/zones/{zone_id}/settings/always_use_https": {
+            "patch": {
+                "summary": "Set Always Use HTTPS",
+                "parameters": [
+                    {
+                        "name": "zone_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/zones/{zone_id}/rulesets/phases/http_request_redirect/entrypoint/rules": {
+            "post": {
+                "summary": "Create redirect rule",
+                "parameters": [
+                    {
+                        "name": "zone_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {}
+    }
+}

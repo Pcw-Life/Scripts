@@ -1,5 +1,0 @@
-{
-    "Process": "smbd",
-    "Activity Monitor": "pcwadmin         99485   0.0  0.0 410199584   1360 s019  S+    8:00AM   0:00.00 grep smbd\npcwadmin         99483   0.0  0.0 410200112   1696 s019  S+    8:00AM   0:00.00 /bin/sh -c ps aux | grep smbd",
-    "SMB Status": ""
-}
